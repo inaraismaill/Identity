@@ -1,0 +1,81 @@
+﻿﻿@using NewPustok.Areas.Admin.ViewModels.ProductAVM
+@model IEnumerable<AdminProductListItemVM>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Products</h6>
+        <a asp-action="Create" class="btn btn-outline-success">Create</a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>SellPrice</th>
+                        <th>CostPrice</th>
+                        <th>Discount</th>
+                        <th>Quantity</th>
+                        <th>ImageUrlFont</th>
+                        <th>ImageUrlBack</th>
+                        <th>Description</th>
+                        <th>About</th>
+                        <th>Category</th>
+                        <th colspan="2">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <tr class='@(item.IsDeleted ? "bg-danger text-white" : "")'>
+                                <td>@item.Id</td>
+                                <td>@item.Name</td>
+                                <td>@item.SellPrice</td>
+                                <td>@item.CostPrice</td>
+                                <td>@item.Discount</td>
+                                <td>@item.Quantity</td>
+                                <td>
+                                    @if (item.ImageFront.Contains("://"))
+                                    {
+                                        <img width="80" src="@item.ImageFront" />
+                                    }
+                                    else
+                                    {
+                                        <img width="80" src="~/@item.ImageFront" />
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.ImageBack.Contains("://"))
+                                    {
+                                        <img width="80" src="@item.ImageBack" />
+                                    }
+                                    else
+                                    {
+                                        <img width="80" src="~/@item.ImageBack" />
+                                    }
+                                </td>
+                                <td>@item.Description</td>
+                                <td>@item.About</td>
+                                <td>@item.Category.Name</td>
+                                <td class="text-center"><a class="btn btn-outline-info" asp-action="Update" asp-route-id="@item.Id">Update</a></td>
+                                <td class="text-center"><a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td class="text-center" colspan="10">No data</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

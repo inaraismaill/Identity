@@ -1,0 +1,53 @@
+﻿@model IEnumerable<BlogListItemVM>
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Blog</h6>
+        <a asp-action="Create" class="btn btn-outline-success">Create</a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>ImageUrl</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Cretaetime</th>
+                        <th>updatetime</th>
+                        <th>Tag</th>
+                        <th colspan="2">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td><img height="100px" src="@item.ImageUrl" /></td>
+                                <td>@item.Title</td>
+                                <td>@item.Description</td>
+                                <td>@item.CreatedAt</td>
+                                <td>@item.LastUpdatedAt</td>
+                                <td>@string.Join(",", item.Tags.Select(x => x.Name))</td>
+                                <td class="text-center"><a class="btn btn-outline-info" asp-action="Update" asp-route-id="@item.Id">Update</a></td>
+                                <td class="text-center"><a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td class="text-center" colspan="7">No data</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

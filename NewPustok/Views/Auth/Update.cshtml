@@ -1,0 +1,41 @@
+﻿@using NewPustok.ViewModels;
+@model UserUpdateVM
+@{
+    ViewData["Fullname"] = "Update";
+}
+<div style="width:60%; margin:0 auto" class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Update User</h6>
+    </div>
+    <div style="margin:60px 10px" class="card-body">
+        <form asp-action="Update" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="Fullname"></label>
+                <input asp-for="Fullname" class="form-control">
+                <span asp-validation-for="Fullname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Username"></label>
+                <input asp-for="Username" class="form-control">
+                <span asp-validation-for="Username" class="Description-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewPassword"></label>
+                <input asp-for="NewPassword" class="form-control">
+                <span asp-validation-for="NewPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" class="form-control">
+                <span asp-validation-for="ConfirmPassword" class="Description-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageFile"></label>
+                <input asp-for="ImageFile" class="form-control">
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+
+            <button class="btn btn-success">Submit!</button>
+        </form>
+    </div>
+</div>

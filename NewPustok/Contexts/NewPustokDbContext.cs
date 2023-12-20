@@ -18,7 +18,6 @@ namespace NewPustok.Contexts
         public DbSet<Settings> Settings { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
 
-        public DbSet<User> Users { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Settings>()

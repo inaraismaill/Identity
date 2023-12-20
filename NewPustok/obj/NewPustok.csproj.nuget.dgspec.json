@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Inara\\Desktop\\PustokMVC\\HomeWorkPustok\\NewPustok\\NewPustok.csproj": {}
+    "C:\\Users\\Birinci Novbe\\Desktop\\New folder\\Identity\\NewPustok\\NewPustok.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Inara\\Desktop\\PustokMVC\\HomeWorkPustok\\NewPustok\\NewPustok.csproj": {
+    "C:\\Users\\Birinci Novbe\\Desktop\\New folder\\Identity\\NewPustok\\NewPustok.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Inara\\Desktop\\PustokMVC\\HomeWorkPustok\\NewPustok\\NewPustok.csproj",
+        "projectUniqueName": "C:\\Users\\Birinci Novbe\\Desktop\\New folder\\Identity\\NewPustok\\NewPustok.csproj",
         "projectName": "NewPustok",
-        "projectPath": "C:\\Users\\Inara\\Desktop\\PustokMVC\\HomeWorkPustok\\NewPustok\\NewPustok.csproj",
-        "packagesPath": "C:\\Users\\Inara\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Inara\\Desktop\\PustokMVC\\HomeWorkPustok\\NewPustok\\obj\\",
+        "projectPath": "C:\\Users\\Birinci Novbe\\Desktop\\New folder\\Identity\\NewPustok\\NewPustok.csproj",
+        "packagesPath": "C:\\Users\\Birinci Novbe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Birinci Novbe\\Desktop\\New folder\\Identity\\NewPustok\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Inara\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Birinci Novbe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

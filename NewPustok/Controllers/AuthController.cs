@@ -124,6 +124,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NewPustok.Helpers;
 using NewPustok.Models;
+using NewPustok.ViewModels;
 using NewPustok.ViewModels.AuthVM;
 
 namespace WebApplicationPustok.Controllers
@@ -190,6 +191,7 @@ namespace WebApplicationPustok.Controllers
             if (vm.UsernameOrEmail.Contains("@"))
             {
                 user = await _userManager.FindByEmailAsync(vm.UsernameOrEmail);
+              
             }
             else
             {
@@ -243,6 +245,47 @@ namespace WebApplicationPustok.Controllers
                 }
             }
             return true;
+        }
+        public async Task<IActionResult> Update()
+        {
+
+            var existsUser = await _userManager.FindByNameAsync(User.Identity.Name);
+            UserUpdateVM vm = new UserUpdateVM();
+
+            if (existsUser != null)
+            {
+                vm = new UserUpdateVM() 
+                { 
+                    Fullname = existsUser.Fullname,
+                    Username = existsUser.UserName,
+                };
+            }
+            return View(vm);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Update(UserUpdateVM vm)
+        {
+           
+            if (!ModelState.IsValid)
+            {
+                return View(vm);
+            }
+
+            if(User.Identity.Name==null) return NotFound();
+
+            var existsUser = await _userManager.FindByNameAsync(User.Identity.Name);
+            existsUser.UserName = vm.Username;
+            existsUser.PasswordHash = vm.NewPassword;
+            existsUser.Fullname = vm.Fullname;
+
+            if (vm.ImageFile != null && vm.ImageFile.Length > 0)
+            {
+                existsUser.ProfileImageUrl = await vm.ImageFile.SaveAsync(PathConstants.Product);
+            }
+
+            await _userManager.UpdateAsync(existsUser);
+
+            return View();
         }
     }
 }
